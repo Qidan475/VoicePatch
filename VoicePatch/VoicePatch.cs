@@ -53,7 +53,7 @@ namespace VoicePatch
                 var msgCopy = msg with { Data = rawData };
                 var msgHash = (conn, msgCopy).GetHashCode();
 
-                Timing.CallDelayed(EntryPoint.Instance.Config.VoicePacketDelayMilliseconds, () =>
+                Timing.CallDelayed(EntryPoint.Instance.Config.VoicePacketDelayMilliseconds / 1000f, () =>
                 {
                     var isPassed = false;
                     lock (_processedPackets)
